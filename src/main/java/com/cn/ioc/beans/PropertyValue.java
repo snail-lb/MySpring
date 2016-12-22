@@ -1,5 +1,10 @@
 package com.cn.ioc.beans;
 
+/**
+ * 用于bean属性输入
+ * @author lvbiao
+ *
+ */
 public class PropertyValue {
 	
 	private final String name;

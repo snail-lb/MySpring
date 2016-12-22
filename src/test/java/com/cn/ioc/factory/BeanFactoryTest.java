@@ -1,29 +1,30 @@
 package com.cn.ioc.factory;
 
+import java.util.Map;
+
 import org.junit.Test;
 
 import com.cn.ioc.beans.BeanDefinition;
-import com.cn.ioc.beans.PropertyValue;
-import com.cn.ioc.beans.PropertyValues;
+import com.cn.ioc.io.ResourceLoader;
+import com.cn.ioc.xml.XmlBeanDefinitionReader;
 
 public class BeanFactoryTest {
 	@Test
-	public void TestBeanFactory(){
-		//1.初始化beanFactory
+	public void TestBeanFactory() throws Exception {
+		// 1.读取配置
+		XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(new ResourceLoader());
+		xmlBeanDefinitionReader.loadBeanDefinitions("spring.xml");
+
+		// 2.初始化BeanFactory并注册bean
 		BeanFactory beanFactory = new AutowireCapableBeanFactory();
-		//2.bean定义
-		BeanDefinition beanDefinition = new BeanDefinition();
-		beanDefinition.setBeanClassName("com.cn.ioc.factory.TestService");
-		//3.设置属性
-		PropertyValue propertyValue = new PropertyValue("name", "Tom");
-		PropertyValues propertyValues = new PropertyValues();
-		propertyValues.addPropertyValue(propertyValue);
-		beanDefinition.setPropertyValues(propertyValues);
-		//4.生成bean
-		beanFactory.registerBeanDefinition("testService", beanDefinition);
-		//5.获取bean
-		TestService testService = (TestService) beanFactory.getBean("testService");
-		testService.sayHello();
+		for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
+			//将bean注册到工厂
+			beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
+		}
+
+		// 3.获取bean
+		TestService helloWorldService = (TestService) beanFactory.getBean("testService");
+		helloWorldService.sayHello();
 	}
-	
+
 }

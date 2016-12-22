@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="com.cn.ioc.io.UrlResource" x="110" y="446">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.ioc.io.Resource"/>
+    </Class>
+    <Class name="com.cn.ioc.beans.AbstractBeanDefinitionReader" x="620" y="151">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.ioc.beans.BeanDefinitionReader"/>
+        <Association
+            destinationClassName="com.cn.ioc.beans.BeanDefinition"
+            endpointName="registry" kind="Simple"/>
+        <Association destinationClassName="com.cn.ioc.io.ResourceLoader"
+            endpointName="resourceLoacer" kind="Simple"/>
+    </Class>
+    <Class name="com.cn.ioc.io.ResourceLoader" x="915" y="157">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.ioc.factory.AbstractBeanFactory" x="8" y="141">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.ioc.factory.BeanFactory"/>
+        <Association
+            destinationClassName="com.cn.ioc.beans.BeanDefinition"
+            endpointName="beanDefinitionMap" kind="Simple"/>
+        <Communication destinationClassName="com.cn.ioc.beans.BeanDefinition"/>
+    </Class>
+    <Class name="com.cn.ioc.beans.BeanDefinition" x="414" y="133">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.cn.ioc.beans.PropertyValues"
+            endpointName="propertyValues" kind="Simple"/>
+    </Class>
+    <Class name="com.cn.ioc.factory.AutowireCapableBeanFactory" x="73" y="260">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.ioc.factory.AbstractBeanFactory"/>
+        <Communication destinationClassName="com.cn.ioc.beans.PropertyValues"/>
+    </Class>
+    <Class name="com.cn.ioc.factory.BeanFactory" x="120" y="24">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.ioc.xml.XmlBeanDefinitionReader" x="594" y="254">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.ioc.beans.AbstractBeanDefinitionReader"/>
+        <Communication destinationClassName="com.cn.ioc.beans.BeanDefinition"/>
+        <Communication destinationClassName="com.cn.ioc.io.Resource"/>
+        <Communication destinationClassName="com.cn.ioc.beans.PropertyValues"/>
+    </Class>
+    <Class name="com.cn.ioc.beans.PropertyValue" x="433" y="339">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.ioc.beans.PropertyValues" x="429" y="259">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.cn.ioc.beans.PropertyValue"
+            endpointName="propertyValueList" kind="Simple"/>
+    </Class>
+    <Class name="com.cn.ioc.io.Resource" x="116" y="354">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.ioc.beans.BeanDefinitionReader" x="636" y="32">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+</ClassDiagram>

@@ -8,7 +8,7 @@ public class BeanDefinition {
 	
 	private Object bean;
 	
-	private PropertyValues propertyValues;
+	private PropertyValues propertyValues = new PropertyValues();
 
 	public String getBeanClassName() {
 		return beanClassName;
@@ -16,10 +16,8 @@ public class BeanDefinition {
 
 	public void setBeanClassName(String beanClassName) {
 		this.beanClassName = beanClassName;
-		Class<?> beanClass;
 		try {
-			beanClass = Class.forName(beanClassName);
-			this.beanClass = beanClass;
+			this.beanClass = Class.forName(beanClassName);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
