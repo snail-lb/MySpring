@@ -13,7 +13,7 @@
         <property name="testService" ref="testService"></property>
     </bean>
     
-    <bean name="testService" class="com.cn.ioc.factory.TestService">
+    <bean name="testService" class="com.cn.ioc.factory.TestService" scope="prototype">
         <property name="name" value="Bob"></property>
         <property name="person" ref="testServicePerson"></property>
     </bean>

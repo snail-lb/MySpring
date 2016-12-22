@@ -64,15 +64,21 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	protected void processBeanDefinition(Element ele) {
 		String name = ele.getAttribute("name");
 		String className = ele.getAttribute("class");
+		//bean的作用域
+		String scope = ele.getAttribute("scope");
 		//查找到一个bean节点，便新建一个BeanDefinition
         BeanDefinition beanDefinition = new BeanDefinition();
         //设置bean属性
         processProperty(ele,beanDefinition);
         //设置bean名称
         beanDefinition.setBeanClassName(className);
+        //设置bean的作用域
+        beanDefinition.setScope(scope);
         //将获取到的bean放入到父类中存储bean的Map中去
 		getRegistry().put(name, beanDefinition);
 	}
+	
+	
 
 	//设置bean属性
     private void processProperty(Element ele,BeanDefinition beanDefinition) {

@@ -2,13 +2,15 @@ package com.cn.ioc.beans;
 
 
 public class BeanDefinition {
-	private String beanClassName;
+	private String beanClassName;//bean名称
 	
 	private Class<?> beanClass; 
 	
-	private Object bean;
+	private Object bean;//bean对象
 	
-	private PropertyValues propertyValues = new PropertyValues();
+	private PropertyValues propertyValues = new PropertyValues();//bean属性列表
+	
+	private String scope;//bean的作用域
 
 	public String getBeanClassName() {
 		return beanClassName;
@@ -45,6 +47,14 @@ public class BeanDefinition {
 
 	public void setPropertyValues(PropertyValues propertyValues) {
 		this.propertyValues = propertyValues;
+	}
+
+	public String getScope() {
+		return scope;
+	}
+
+	public void setScope(String scope) {
+		this.scope = scope;
 	}
 	
 }

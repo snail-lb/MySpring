@@ -26,6 +26,11 @@ public abstract class AbstractBeanFactory implements BeanFactory{
 		Object bean = beanDefinition.getBean();
 		if (bean == null) {
 			bean = doCreateBean(beanDefinition);
+		}else{
+			//如果bean的作用域为原型，那么在创建一个新的bean返回
+			if(beanDefinition.getScope().equals("prototype")){
+				bean = doCreateBean(beanDefinition);
+			}
 		}
 		return bean;
 	}

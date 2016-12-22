@@ -10,8 +10,15 @@ public class ClassPathXmlApplicationContextTest {
 	public void test(){
 		try {
 			ClassPathXmlApplicationContext cpac = new ClassPathXmlApplicationContext("spring.xml");
-			TestService testservice = (TestService) cpac.getBean("tstService");
-			testservice.sayHello();
+			TestService testService = (TestService) cpac.getBean("testService");
+			testService.setName("Tom");
+			testService.sayHello();
+			
+			TestService testService2 = (TestService) cpac.getBean("testService");
+			testService2.sayHello();
+			
+			System.out.println(testService == testService2);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
