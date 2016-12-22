@@ -11,7 +11,6 @@ public class ClassPathXmlApplicationContextTest {
 		try {
 			ClassPathXmlApplicationContext cpac = new ClassPathXmlApplicationContext("spring.xml");
 			TestService testService = (TestService) cpac.getBean("testService");
-			testService.setName("Tom");
 			testService.sayHello();
 			
 			TestService testService2 = (TestService) cpac.getBean("testService");

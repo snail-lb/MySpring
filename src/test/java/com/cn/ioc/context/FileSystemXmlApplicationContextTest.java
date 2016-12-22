@@ -11,7 +11,6 @@ public class FileSystemXmlApplicationContextTest {
 		try {
 			FileSystemXmlApplicationContext cpac = new FileSystemXmlApplicationContext("F:\\mavenProject\\MySpring\\Test\\spring.xml");
 			TestService testService = (TestService) cpac.getBean("testService");
-			testService.setName("Tom");
 			testService.sayHello();
 			
 			TestService testService2 = (TestService) cpac.getBean("testService");

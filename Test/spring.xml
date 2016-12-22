@@ -8,14 +8,8 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <bean name="testServicePerson" class="com.cn.ioc.factory.TestServicePerson">
-        <property name="sex" value="man"></property>
-        <property name="testService" ref="testService"></property>
-    </bean>
-    
-    <bean name="testService" class="com.cn.ioc.factory.TestService" scope="prototype">
+    <bean name="testService" class="com.cn.ioc.factory.TestServiceImpl" scope="prototype">
         <property name="name" value="Bob"></property>
-        <property name="person" ref="testServicePerson"></property>
     </bean>
 
 </beans>
