@@ -2,6 +2,7 @@ package com.cn.ioc.xml;
 
 import com.cn.ioc.beans.AbstractBeanDefinitionReader;
 import com.cn.ioc.beans.BeanDefinition;
+import com.cn.ioc.beans.BeanReference;
 import com.cn.ioc.beans.PropertyValue;
 import com.cn.ioc.io.ResourceLoader;
 
@@ -76,15 +77,26 @@ public class XmlBeanDefinitionReader extends AbstractBeanDefinitionReader {
 	//设置bean属性
     private void processProperty(Element ele,BeanDefinition beanDefinition) {
         NodeList propertyNode = ele.getElementsByTagName("property");
-        for (int i = 0; i < propertyNode.getLength(); i++) {
-            Node node = propertyNode.item(i);
-            if (node instanceof Element) {
-                Element propertyEle = (Element) node;
-                String name = propertyEle.getAttribute("name");
-                String value = propertyEle.getAttribute("value");
-                //设置bean属性
-                beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name,value));
-            }
-        }
+		for (int i = 0; i < propertyNode.getLength(); i++) {
+			Node node = propertyNode.item(i);
+			if (node instanceof Element) {
+				Element propertyEle = (Element) node;
+				String name = propertyEle.getAttribute("name");
+				String value = propertyEle.getAttribute("value");
+				if (value != null && value.length() > 0) {
+					//设置bean普通属性
+					beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, value));
+				} else {
+					String ref = propertyEle.getAttribute("ref");
+					if (ref == null || ref.length() == 0) {
+						throw new IllegalArgumentException("Configuration problem: <property> element for property '"
+								+ name + "' must specify a ref or value");
+					}
+					BeanReference beanReference = new BeanReference(ref);
+					//添加bean依赖属性
+					beanDefinition.getPropertyValues().addPropertyValue(new PropertyValue(name, beanReference));
+				}
+			}
+		}
     }
 }

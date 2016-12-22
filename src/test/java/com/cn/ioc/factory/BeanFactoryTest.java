@@ -16,15 +16,18 @@ public class BeanFactoryTest {
 		xmlBeanDefinitionReader.loadBeanDefinitions("spring.xml");
 
 		// 2.初始化BeanFactory并注册bean
-		BeanFactory beanFactory = new AutowireCapableBeanFactory();
+		AbstractBeanFactory beanFactory = new AutowireCapableBeanFactory();
 		for (Map.Entry<String, BeanDefinition> beanDefinitionEntry : xmlBeanDefinitionReader.getRegistry().entrySet()) {
 			//将bean注册到工厂
 			beanFactory.registerBeanDefinition(beanDefinitionEntry.getKey(), beanDefinitionEntry.getValue());
 		}
 
-		// 3.获取bean
-		TestService helloWorldService = (TestService) beanFactory.getBean("testService");
-		helloWorldService.sayHello();
+		// 3.初始化bean
+        beanFactory.preInstantiateSingletons();
+        
+		// 4.获取bean
+		TestService testService = (TestService) beanFactory.getBean("testService");
+		testService.sayHello();
 	}
 
 }

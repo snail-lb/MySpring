@@ -3,43 +3,43 @@ package com.cn.ioc.factory;
 import java.lang.reflect.Field;
 
 import com.cn.ioc.beans.BeanDefinition;
+import com.cn.ioc.beans.BeanReference;
 import com.cn.ioc.beans.PropertyValue;
 
+/**
+ * 在这里进行bean的创建,并使用反射设置属性
+ * @author lvbiao
+ *
+ */
 public class AutowireCapableBeanFactory extends AbstractBeanFactory{
 
 	@Override
-	protected Object doCreateBean(BeanDefinition beanDefinition) {
+	protected Object doCreateBean(BeanDefinition beanDefinition) throws Exception {
 		//创建Bean
 		Object bean = createBeanInstance(beanDefinition);
+		beanDefinition.setBean(bean);
 		//设置Bean中的属性
 		applyPropertyValues(bean, beanDefinition);
 		return bean;
 	}
 
 	/**
-	 * 设置bean中的属性
+	 * 通过反射设置bean中的属性
 	 * @param bean
 	 * @param beanDefinition
-	 * @throws SecurityException 
-	 * @throws NoSuchFieldException 
-	 * @throws IllegalAccessException 
-	 * @throws IllegalArgumentException 
+	 * @throws Exception 
 	 */
-	protected void applyPropertyValues(Object bean, BeanDefinition beanDefinition) {
-		for(PropertyValue pv : beanDefinition.getPropertyValues().getPropertyValues()){
-			try {
-				Field declaredField = bean.getClass().getDeclaredField(pv.getName());
-				declaredField.setAccessible(true);
-				declaredField.set(bean,pv.getValue());
-			} catch (NoSuchFieldException e) {
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
+	protected void applyPropertyValues(Object bean, BeanDefinition beanDefinition) throws Exception{
+		for (PropertyValue propertyValue : beanDefinition.getPropertyValues().getPropertyValues()) {
+			Field declaredField = bean.getClass().getDeclaredField(propertyValue.getName());
+			declaredField.setAccessible(true);
+			Object value = propertyValue.getValue();
+			//bean依赖,如果这个属性为BeanRefence，说明这个属性值为bean
+			if (value instanceof BeanReference) {
+				BeanReference beanReference = (BeanReference) value;
+				value = getBean(beanReference.getName());
 			}
+			declaredField.set(bean, value);
 		}
 		
 	}
