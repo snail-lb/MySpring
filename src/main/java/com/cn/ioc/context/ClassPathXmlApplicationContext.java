@@ -5,7 +5,7 @@ import java.util.Map;
 import com.cn.ioc.beans.BeanDefinition;
 import com.cn.ioc.factory.AbstractBeanFactory;
 import com.cn.ioc.factory.AutowireCapableBeanFactory;
-import com.cn.ioc.io.ResourceLoader;
+import com.cn.ioc.io.UrlResourceLoader;
 import com.cn.ioc.xml.XmlBeanDefinitionReader;
 
 public class ClassPathXmlApplicationContext extends AbstractApplicationContext{
@@ -23,7 +23,7 @@ public class ClassPathXmlApplicationContext extends AbstractApplicationContext{
 	}
 	
 	public void refresh() throws Exception{
-		XmlBeanDefinitionReader xbdr = new XmlBeanDefinitionReader(new ResourceLoader());
+		XmlBeanDefinitionReader xbdr = new XmlBeanDefinitionReader(new UrlResourceLoader());
 		xbdr.loadBeanDefinitions(configLocation);
 		for(Map.Entry<String, BeanDefinition> bdr : xbdr.getRegistry().entrySet()) {
 			beanFactory.registerBeanDefinition(bdr.getKey(), bdr.getValue());
