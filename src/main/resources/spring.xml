@@ -10,6 +10,7 @@
 
     <bean name="testServicePerson" class="com.cn.ioc.factory.TestServicePerson">
         <property name="sex" value="man"></property>
+        <property name="testService" ref="testService"></property>
     </bean>
     
     <bean name="testService" class="com.cn.ioc.factory.TestService">
