@@ -15,6 +15,7 @@ public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
 		this.advised = advised;
 	}
 
+	//获取代理对象
 	public Object getProxy() {
 		return Proxy.newProxyInstance(getClass().getClassLoader(),
 				new Class[] { advised.getTargetSource().getTargetClass() }, this);
@@ -22,7 +23,8 @@ public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {
 
 	public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
 		MethodInterceptor methodInterceptor = advised.getMethodInterceptor();
-		return methodInterceptor.invoke(new ReflectiveMethodInvocation(advised.getTargetSource().getTarget(), method, args));
+		ReflectiveMethodInvocation rmi = new ReflectiveMethodInvocation(advised.getTargetSource().getTarget(), method, args);
+		return methodInterceptor.invoke(rmi);
 	}
 
 }

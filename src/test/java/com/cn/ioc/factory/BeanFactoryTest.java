@@ -27,9 +27,9 @@ public class BeanFactoryTest {
         beanFactory.preInstantiateSingletons();
         
 		// 4.获取bean
-        TestServicePerson testServicePerson = (TestServicePerson) beanFactory.getBean("testServicePerson");
+        TestServiceImpl testServiceImpl = (TestServiceImpl) beanFactory.getBean("testService");
 		
-        testServicePerson.getTestService().sayHello();
+        testServiceImpl.sayHello();
 	}
 
 }

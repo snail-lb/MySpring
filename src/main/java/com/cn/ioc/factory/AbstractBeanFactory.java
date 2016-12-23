@@ -32,6 +32,13 @@ public abstract class AbstractBeanFactory implements BeanFactory{
 				bean = doCreateBean(beanDefinition);
 			}
 		}
+		//至此bean已经完成实例化，并且属性也已经设置成功
+		//接下来完成bean生命周期中的部分步骤
+		//1.如果bean实现BeanNameAware（此步骤放弃，因为bean定义中一直使用的是beanName，并没有使用beanID）
+		//2.如果bean实现BeanFactoryAware接口，则调用setBeanFactory()方法
+		if (bean instanceof BeanFactoryAware) {
+			((BeanFactoryAware) bean).setBeanFactory(this);
+		}
 		return bean;
 	}
 

@@ -13,11 +13,6 @@ public class ClassPathXmlApplicationContextTest {
 			TestService testService = (TestService) cpac.getBean("testService");
 			testService.sayHello();
 			
-			TestService testService2 = (TestService) cpac.getBean("testService");
-			testService2.sayHello();
-			
-			System.out.println(testService == testService2);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
