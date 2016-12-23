@@ -153,6 +153,15 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
+    <Class name="com.cn.aop.Pointcut" x="843" y="597">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
     <Class name="com.cn.ioc.io.UrlResource" x="838" y="452">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
@@ -162,6 +171,15 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.io.Resource"/>
+    </Class>
+    <Class name="com.cn.aop.MethodMatcher" x="920" y="595">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
     </Class>
     <Class name="com.cn.ioc.io.ResourceLoader" x="881" y="120">
         <AttributesDisplayFilter public-accepted="true"
@@ -187,6 +205,27 @@
         <Communication destinationClassName="com.cn.ioc.beans.BeanDefinition"/>
     </Class>
     <Class name="com.cn.ioc.io.Resource" x="921" y="339">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.aop.AspectJExpressionPointcut" x="874" y="681">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.ClassFilter"/>
+        <Extension destinationClassName="com.cn.aop.MethodMatcher"/>
+        <Extension destinationClassName="com.cn.aop.Pointcut"/>
+    </Class>
+    <Class name="com.cn.aop.ClassFilter" x="1041" y="596">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -227,6 +266,25 @@
             private-accepted="false" protected-accepted="false"
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.aop.Advisor" x="669" y="536">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.aop.PointcutAdvisor" x="654" y="616">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.Advisor"/>
     </Class>
     <Class name="com.cn.ioc.io.FileSystemResourceLoader" x="953" y="235">
         <AttributesDisplayFilter public-accepted="true"
@@ -274,5 +332,19 @@
         <Association
             destinationClassName="com.cn.ioc.beans.PropertyValue"
             endpointName="propertyValueList" kind="Simple"/>
+    </Class>
+    <Class name="com.cn.aop.AspectJExpressionPointcutAdvisor" x="599" y="704">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.PointcutAdvisor"/>
+        <Association
+            destinationClassName="com.cn.aop.AspectJExpressionPointcut"
+            endpointName="pointcut" kind="Simple"/>
+        <Communication destinationClassName="com.cn.aop.AspectJExpressionPointcut"/>
     </Class>
 </ClassDiagram>
