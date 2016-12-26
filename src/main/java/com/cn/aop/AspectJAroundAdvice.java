@@ -8,9 +8,6 @@ import org.aopalliance.intercept.MethodInvocation;
 
 import com.cn.ioc.factory.BeanFactory;
 
-/**
- * @author yihua.huang@dianping.com
- */
 public class AspectJAroundAdvice implements Advice, MethodInterceptor {
 
 	private BeanFactory beanFactory;

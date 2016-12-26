@@ -1,12 +1,11 @@
 package com.cn.ioc.context;
 
-import java.io.File;
 import java.util.Map;
 
 import com.cn.ioc.beans.BeanDefinition;
 import com.cn.ioc.factory.AbstractBeanFactory;
 import com.cn.ioc.factory.AutowireCapableBeanFactory;
-import com.cn.ioc.io.FileSystemResourceLoader;
+import com.cn.ioc.io.UrlResourceLoader;
 import com.cn.ioc.xml.XmlBeanDefinitionReader;
 
 public class FileSystemXmlApplicationContext extends AbstractApplicationContext{
@@ -22,8 +21,17 @@ public class FileSystemXmlApplicationContext extends AbstractApplicationContext{
 		refresh();
 	}
 	
-	public void refresh() throws Exception{
+	/*public void refresh() throws Exception{
 		XmlBeanDefinitionReader xbdr = new XmlBeanDefinitionReader(new FileSystemResourceLoader());
+		xbdr.loadBeanDefinitions(filePath);
+		for(Map.Entry<String, BeanDefinition> bdr : xbdr.getRegistry().entrySet()) {
+			beanFactory.registerBeanDefinition(bdr.getKey(), bdr.getValue());
+		}
+	}
+*/
+	@Override
+	protected void loadBeanDefinitions(AbstractBeanFactory beanFactory) throws Exception {
+		XmlBeanDefinitionReader xbdr = new XmlBeanDefinitionReader(new UrlResourceLoader());
 		xbdr.loadBeanDefinitions(filePath);
 		for(Map.Entry<String, BeanDefinition> bdr : xbdr.getRegistry().entrySet()) {
 			beanFactory.registerBeanDefinition(bdr.getKey(), bdr.getValue());

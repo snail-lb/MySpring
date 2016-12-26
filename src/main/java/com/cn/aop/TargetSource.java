@@ -9,11 +9,18 @@ public class TargetSource {
 
 	private Class<?> targetClass;
 	
+	private Class<?>[] interfaces;
+	
 	private Object target;
 
-	public TargetSource(Object target,Class<?> targetClass) {
-		this.targetClass = targetClass;
+	public TargetSource(Object target,Class<?>... interfaces) {
+		this.interfaces = interfaces;
 		this.target = target;
+	}
+	
+	public TargetSource(Object target, Class<?> targetClass) {
+		this.target = target;
+		this.targetClass = targetClass;
 	}
 
 	public Class<?> getTargetClass() {
@@ -31,6 +38,12 @@ public class TargetSource {
 	public void setTarget(Object target) {
 		this.target = target;
 	}
-	
-	
+
+	public Class<?>[] getInterfaces() {
+		return interfaces;
+	}
+
+	public void setInterfaces(Class<?>[] interfaces) {
+		this.interfaces = interfaces;
+	}
 }

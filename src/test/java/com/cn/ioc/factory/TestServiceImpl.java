@@ -5,6 +5,7 @@ import com.cn.ioc.beans.BeanPostProcessor;
 public class TestServiceImpl implements TestService,BeanFactoryAware,BeanPostProcessor,InitializingBean{
 	private String name;
 	private BeanFactory beanFactory;
+	private TestServicePerson testServicePerson;
 
 	public void sayHello() {
 		System.out.println(name + " sayHello");

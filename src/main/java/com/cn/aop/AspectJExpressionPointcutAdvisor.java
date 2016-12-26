@@ -13,13 +13,15 @@ public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
      * 通知
      */
     private Advice advice;
+    
+    private String expression;	//用户定义的切点表达式
 
     public void setAdvice(Advice advice) {
         this.advice = advice;
     }
 
     public void setExpression(String expression) {
-        this.pointcut.setExpression(expression);
+    	this.pointcut.setExpression(expression);
     }
 
 	public Advice getAdvice() {
@@ -29,4 +31,10 @@ public class AspectJExpressionPointcutAdvisor implements PointcutAdvisor {
 	public Pointcut getPointcut() {
 		return pointcut;
 	}
+
+	public String getExpression() {
+		return expression;
+	}
+
+	
 }

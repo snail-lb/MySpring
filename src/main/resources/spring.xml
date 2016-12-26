@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-    <bean name="testService" class="com.cn.ioc.factory.TestServiceImpl" scope="prototype">
-        <property name="name" value="Bob"></property>
-    </bean>
+	<bean name="timerInterceptor" class="com.cn.aop.TimerInterceptor">
+	</bean>
+	
+	<bean name="testAspect" class="com.cn.aop.TestAspect">
+	</bean>
+	
+	<bean name="testService" class="com.cn.ioc.factory.TestServiceImpl_2">
+		<property name="name" value="Bob"></property>
+	</bean>
+	
+<!-- 	<bean name="testService" class="com.cn.ioc.factory.TestServiceImpl">
+		<property name="name" value="Bob"></property>
+		<property name="testServicePerson" ref="testServicePerson"></property>
+	</bean>
 
+	<bean name="testServicePerson" class="com.cn.ioc.factory.TestServicePerson">
+		<property name="sex" value="man"></property>
+		<property name="testService" ref="testService"></property>
+	</bean> -->
+
+
+	<!-- <aop:aspectj-autoproxy /> -->
+	<bean id="autoProxyCreator" class="com.cn.aop.AspectJAwareAdvisorAutoProxyCreator"></bean>
+	
+<!-- 	<aop:config>
+		<aop:aspect id="TestAspect" ref="aspectBean">
+			配置com.spring.service包下所有类或接口的所有方法
+			<aop:pointcut id="businessService" expression="execution(* com.cn.ioc.factory.TestServiceImpl.*(..))" />
+			<aop:before pointcut-ref="businessService" method="doBefore" />
+			<aop:after pointcut-ref="businessService" method="doAfter" />
+			<aop:around pointcut-ref="businessService" method="doAround" />
+			<aop:after-throwing pointcut-ref="businessService" method="doThrowing" throwing="ex" />
+		</aop:aspect>
+	</aop:config> -->
+	<bean id="aspectjAspect" class="com.cn.aop.AspectJExpressionPointcutAdvisor">
+        <property name="advice" ref="timerInterceptor"></property>
+        <property name="expression" value="execution(* com.cn.ioc.factory.*.*(..))"></property>
+    </bean>
 </beans>

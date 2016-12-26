@@ -7,7 +7,7 @@ import org.aopalliance.intercept.MethodInvocation;
 
 public class ReflectiveMethodInvocation implements MethodInvocation {
 	
-	private Object target;
+	protected Object target;
 
 	private Method method;
 

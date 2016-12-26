@@ -25,7 +25,7 @@
         <Association destinationClassName="com.cn.ioc.io.ResourceLoader"
             endpointName="resourceLoacer" kind="Simple"/>
     </Class>
-    <Class name="com.cn.ioc.context.ApplicationContext" x="-107" y="106">
+    <Class name="com.cn.ioc.context.ApplicationContext" x="-103" y="6">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -35,7 +35,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.factory.BeanFactory"/>
     </Class>
-    <Class name="com.cn.ioc.factory.AutowireCapableBeanFactory" x="108" y="246">
+    <Class name="com.cn.ioc.factory.AutowireCapableBeanFactory" x="185" y="247">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -62,7 +62,7 @@
         <Communication destinationClassName="com.cn.ioc.io.Resource"/>
         <Communication destinationClassName="com.cn.ioc.beans.PropertyValues"/>
     </Class>
-    <Class name="com.cn.aop.AopProxy" x="-44" y="500">
+    <Class name="com.cn.aop.AopProxy" x="-51" y="516">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -89,7 +89,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="com.cn.ioc.context.AbstractApplicationContext" x="-129" y="231">
+    <Class name="com.cn.ioc.context.AbstractApplicationContext" x="-167" y="129">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -116,7 +116,46 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.io.ResourceLoader"/>
     </Class>
-    <Class name="com.cn.aop.JdkDynamicAopProxy" x="-132" y="608">
+    <Class name="com.cn.aop.JdkDynamicAopProxy" x="-287" y="759">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.AbstractAopProxy"/>
+        <Communication destinationClassName="com.cn.aop.AdvisedSupport"/>
+        <Communication destinationClassName="com.cn.aop.TargetSource"/>
+    </Class>
+    <Class name="com.cn.ioc.beans.BeanPostProcessor" x="1" y="339">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.aop.ReflectiveMethodInvocation" x="-453" y="486">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.ioc.factory.BeanFactoryAware" x="-135" y="337">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="com.cn.aop.AbstractAopProxy" x="-83" y="615">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -127,37 +166,8 @@
         <Extension destinationClassName="com.cn.aop.AopProxy"/>
         <Association destinationClassName="com.cn.aop.AdvisedSupport"
             endpointName="advised" kind="Simple"/>
-        <Communication destinationClassName="com.cn.aop.AdvisedSupport"/>
-        <Communication destinationClassName="com.cn.aop.TargetSource"/>
     </Class>
-    <Class name="com.cn.ioc.beans.BeanPostProcessor" x="-387" y="472">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-    </Class>
-    <Class name="com.cn.aop.ReflectiveMethodInvocation" x="-105" y="702">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-    </Class>
-    <Class name="com.cn.ioc.factory.BeanFactoryAware" x="-452" y="91">
-        <AttributesDisplayFilter public-accepted="true"
-            private-accepted="true" protected-accepted="true"
-            default-accepted="true" static-accepted="false"/>
-        <MethodDisplayFilter public-accepted="true"
-            private-accepted="false" protected-accepted="false"
-            default-accepted="false" static-accepted="false"
-            accessors-accepted="false" constructors-accepted="false"/>
-    </Class>
-    <Class name="com.cn.ioc.factory.BeanFactory" x="17" y="-7">
+    <Class name="com.cn.ioc.factory.BeanFactory" x="141" y="-5">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -175,7 +185,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="com.cn.aop.Pointcut" x="843" y="597">
+    <Class name="com.cn.aop.Pointcut" x="957" y="563">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -184,7 +194,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="com.cn.ioc.factory.InitializingBean" x="-441" y="-3">
+    <Class name="com.cn.ioc.factory.InitializingBean" x="262" y="-96">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -203,7 +213,7 @@
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.io.Resource"/>
     </Class>
-    <Class name="com.cn.aop.MethodMatcher" x="920" y="595">
+    <Class name="com.cn.aop.MethodMatcher" x="836" y="560">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -233,11 +243,15 @@
         <Association
             destinationClassName="com.cn.ioc.beans.BeanDefinition"
             endpointName="beanDefinitionMap" kind="Simple"/>
+        <Association
+            destinationClassName="com.cn.ioc.beans.BeanPostProcessor"
+            endpointName="beanPostProcessors" kind="Simple"/>
+        <Communication destinationClassName="com.cn.ioc.factory.InitializingBean"/>
+        <Communication destinationClassName="com.cn.ioc.beans.BeanPostProcessor"/>
         <Communication destinationClassName="com.cn.ioc.beans.BeanDefinition"/>
         <Communication destinationClassName="com.cn.ioc.factory.BeanFactoryAware"/>
     </Class>
-    <Class name="com.cn.aop.AspectJAwareAdvisorAutoProxyCreator"
-        x="-489" y="577">
+    <Class name="com.cn.aop.AspectJAwareAdvisorAutoProxyCreator" x="-56" y="429">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -246,12 +260,34 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.beans.BeanPostProcessor"/>
+        <Extension destinationClassName="com.cn.ioc.factory.BeanFactoryAware"/>
         <Association
             destinationClassName="com.cn.ioc.factory.AbstractBeanFactory"
             endpointName="beanFactory" kind="Simple"/>
         <Communication destinationClassName="com.cn.aop.ClassFilter"/>
         <Communication destinationClassName="com.cn.aop.JdkDynamicAopProxy"/>
         <Communication destinationClassName="com.cn.aop.AdvisedSupport"/>
+        <Communication destinationClassName="com.cn.ioc.factory.AbstractBeanFactory"/>
+    </Class>
+    <Class name="com.cn.aop.Cglib2AopProxy.CglibMethodInvocation"
+        x="-453" y="631">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.ReflectiveMethodInvocation"/>
+    </Class>
+    <Class name="com.cn.aop.BeanFactoryAware" x="114" y="-91">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
     </Class>
     <Class name="com.cn.ioc.io.Resource" x="921" y="339">
         <AttributesDisplayFilter public-accepted="true"
@@ -262,7 +298,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
     </Class>
-    <Class name="com.cn.aop.AspectJAroundAdvice" x="-283" y="-14">
+    <Class name="com.cn.aop.AspectJAroundAdvice" x="306" y="-16">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -273,6 +309,19 @@
         <Association
             destinationClassName="com.cn.ioc.factory.BeanFactory"
             endpointName="beanFactory" kind="Simple"/>
+    </Class>
+    <Class name="com.cn.aop.Cglib2AopProxy" x="25" y="775">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.AbstractAopProxy"/>
+        <Communication destinationClassName="com.cn.aop.MethodMatcher"/>
+        <Communication destinationClassName="com.cn.aop.AdvisedSupport"/>
+        <Communication destinationClassName="com.cn.aop.Cglib2AopProxy.CglibMethodInvocation"/>
     </Class>
     <Class name="com.cn.aop.AspectJExpressionPointcut" x="874" y="681">
         <AttributesDisplayFilter public-accepted="true"
@@ -286,7 +335,7 @@
         <Extension destinationClassName="com.cn.aop.MethodMatcher"/>
         <Extension destinationClassName="com.cn.aop.Pointcut"/>
     </Class>
-    <Class name="com.cn.aop.ClassFilter" x="1041" y="596">
+    <Class name="com.cn.aop.ClassFilter" x="1043" y="559">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -308,8 +357,20 @@
         <Association destinationClassName="com.cn.aop.MethodMatcher"
             endpointName="methodMatcher" kind="Simple"/>
     </Class>
+    <Class name="com.cn.aop.ProxyFactory" x="227" y="517">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.cn.aop.AdvisedSupport"/>
+        <Extension destinationClassName="com.cn.aop.AopProxy"/>
+        <Communication destinationClassName="com.cn.aop.AopProxy"/>
+    </Class>
     <Class name="com.cn.ioc.context.FileSystemXmlApplicationContext"
-        x="-305" y="381">
+        x="-302" y="248">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -318,6 +379,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.context.AbstractApplicationContext"/>
+        <Communication destinationClassName="com.cn.ioc.context.AbstractApplicationContext"/>
         <Communication destinationClassName="com.cn.ioc.factory.AbstractBeanFactory"/>
         <Communication destinationClassName="com.cn.ioc.xml.XmlBeanDefinitionReader"/>
     </Class>
@@ -372,7 +434,7 @@
             endpointName="propertyValues" kind="Simple"/>
     </Class>
     <Class name="com.cn.ioc.context.ClassPathXmlApplicationContext"
-        x="-68" y="377">
+        x="-97" y="253">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
@@ -381,6 +443,7 @@
             default-accepted="false" static-accepted="false"
             accessors-accepted="false" constructors-accepted="false"/>
         <Extension destinationClassName="com.cn.ioc.context.AbstractApplicationContext"/>
+        <Communication destinationClassName="com.cn.ioc.context.AbstractApplicationContext"/>
         <Communication destinationClassName="com.cn.ioc.factory.AbstractBeanFactory"/>
         <Communication destinationClassName="com.cn.ioc.xml.XmlBeanDefinitionReader"/>
     </Class>
@@ -410,7 +473,22 @@
             endpointName="pointcut" kind="Simple"/>
         <Communication destinationClassName="com.cn.aop.AspectJExpressionPointcut"/>
     </Class>
-    <Class name="com.cn.ioc.context.ApplicationContextAwrae" x="201" y="12">
+    <Class name="com.cn.aop.Cglib2AopProxy.DynamicAdvisedInterceptor"
+        x="148" y="731">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="com.cn.aop.AdvisedSupport"
+            endpointName="advised" kind="Simple"/>
+        <Communication destinationClassName="com.cn.aop.MethodMatcher"/>
+        <Communication destinationClassName="com.cn.aop.AdvisedSupport"/>
+        <Communication destinationClassName="com.cn.aop.Cglib2AopProxy.CglibMethodInvocation"/>
+    </Class>
+    <Class name="com.cn.ioc.context.ApplicationContextAwrae" x="-122" y="-87">
         <AttributesDisplayFilter public-accepted="true"
             private-accepted="true" protected-accepted="true"
             default-accepted="true" static-accepted="false"/>
